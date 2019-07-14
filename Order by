@@ -1,3 +1,12 @@
 Sorting data in a particular manner:
 Syntax: Select column name from table order y column name;
-slect author_name from books order by price;
+select author_name from books order by price;
+---------------------------------------------------------------------
+select title, pages from books order by pages desc limit 1;
+select title, pages from books order by pages limit 0,2
+-----------------------------------------------------------------
+Most Recent 3 eneteries:
+
+select concat(title,'-',released_year) as Summary from books order by released_year desc limit 3;
+-----------------------------------------------------------------------------------------------------
+
