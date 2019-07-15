@@ -1,0 +1,28 @@
+Aggregate functions
+
+sum(),avg(),count()
+
+select sum() pages from books;
+
+
+select author_lname,author_fname,sum(pages) from books group by author_lname,authr_fname;
+
+select author_lname,author_fname,sum(pages) as total_page from 
+books group by author_lname,author_fname 
+order by total_page;
+-------------------------------------------------------------------------
+select avg(pages) from books
+select released_year,  avg(stock_quantity) from books group by released_year;
+-----------------------
+select concat(author_fname,author_fname) as
+author_name, title,pages  from books where  pages =
+(select 
+max(pages) from books);
+
+
+------------------------------------------------------------
+
+select min(released_year),
+ avg(pages),count(*) from books
+ where released_year = 
+ (select min(released_year)from books) group by released_year
