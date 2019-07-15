@@ -1,0 +1,10 @@
+create table people ( name varchar(40), birthdate date, birthtime time,
+birthdt datetime);
+
+drop table people;
+create table people ( name_person varchar(40), birthdate date, birthtime time,
+birthdt datetime);
+insert into people(name_person, birthdate, birthtime,birthdt) values ('vijay', '1991-09-19', '23:10:35','1991-09-19 23:10:35')
+
+select * from people
+
