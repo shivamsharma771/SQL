@@ -1,0 +1,26 @@
+In operator reduces the duplicacy of operator. 
+eg:
+select * from tablename where autor ='' or author -= so on
+
+alternatively,
+
+auther in('list of values')
+
+
+similarly not in opposite of in
+======================================
+misc
+drop table people;
+create table people ( name_person varchar(40), birthdate date, birthtime time,
+birthdt datetime);
+insert into people(name_person, birthdate, birthtime,birthdt) values ('vijay', '1991-09-19', '23:10:35','1991-09-19 23:10:35');
+
+select * from people;
+
+insert into people (name_person, birthdate, birthtime,birthdt) values ('lobby',curdate(),curtime(),now())
+select date_format( birthdate, '%d/%m/%y') from people
+select * from books
+select title, released_year from books where author_fname = 'Dave' and released_year >2010
+select * from books where released_year  between 2003 and 2019
+
+==================================================
