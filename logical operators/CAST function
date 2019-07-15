@@ -1,0 +1,21 @@
+select title, released_year from books where author_fname = 'Dave' and released_year >2010
+
+we can use 'and' or '&&'
+
+OR, ||
+or operator
+
+
+Between:
+
+upper and lower limit this can be accessed through between.
+
+select * from books where released_year  between 2003 and 2019
+
+between upper and lower limit
+
+there is another function that is opposite
+
+NOT Between exacltly opposite of between
+
+CAST keyword will try to change it to the thing thaT WE MENTION.
