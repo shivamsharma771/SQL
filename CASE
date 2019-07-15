@@ -1,0 +1,67 @@
+Case is like IF statement in the programming languages
+
+Syntax:
+select title, released_year ,
+  Case 
+  when released_year >= 2000 then 'Modern LIT'
+  else 
+  '20th centuery lit'
+end as genre
+
+from books
+
+above case will add the data to genre column.
+========================================================================
+this can be used as in nested loops just need to use when and then the statement
+select * from books;
+select title, author_fname,
+CASE
+when released_year >=2000
+Then
+'21st century'
+ELSe
+ '20 th centure'
+ END as 'century'
+ from books;
+=======================================
+from notes:
+
+SELECT title, released_year,
+       CASE 
+         WHEN released_year >= 2000 THEN 'Modern Lit'
+         ELSE '20th Century Lit'
+       END AS GENRE
+FROM books;
+ 
+SELECT title, stock_quantity,
+    CASE 
+        WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+        WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+        ELSE '***'
+    END AS STOCK
+FROM books;
+ 
+SELECT title,
+    CASE 
+        WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+        WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+        ELSE '***'
+    END AS STOCK
+FROM books;
+ 
+SELECT title, stock_quantity,
+    CASE 
+        WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+        WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+        WHEN stock_quantity BETWEEN 101 AND 150 THEN '***'
+        ELSE '****'
+    END AS STOCK
+FROM books;
+ 
+SELECT title, stock_quantity,
+    CASE 
+        WHEN stock_quantity <= 50 THEN '*'
+        WHEN stock_quantity <= 100 THEN '**'
+        ELSE '***'
+    END AS STOCK
+FROM books; 
