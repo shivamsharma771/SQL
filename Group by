@@ -1,0 +1,35 @@
+Group by:
+
+Core of aggregating the data.
+summarizes or aggregated identical data into single rows.
+
+select title,author_lname from books group by author_lname
+
+select author_lname, count(*) from books group by author_lname
+
+select concat(author_lname,' ', author_fname) as author, count(*)  from books group by author;
+
+this group by will count on the basis of author names by grouping them.
+
+using order by and group by in one statement:
+
+select concat(author_lname,' ', author_fname) as author, 
+count(*) as no_of_books  from books 
+group by author 
+order by no_of_books desc;
+
+IN CASE OF DUPLICATE RECORDS in the one column of table we can group by on the basis 
+of more than one column.
+
+select concat(author_lname,' ', author_fname) as author, 
+count(*) as no_of_books  from books 
+group by author_lname, author_fname --> will group by on both first and last name
+order by no_of_books desc;
+
+---------------------------------------------------------------------------------------------
+select released_year, count(*) as NO_OF_BOOKS from books 
+group by released_year order by  NO_OF_BOOKS desc
+----------------------------------------------------------------------------------------
+select concat('In ', released_year, ' Books Realeased ',count(*)) as years from books 
+group by released_year order by released_year
+-------------------------------------------------------------------------------------
