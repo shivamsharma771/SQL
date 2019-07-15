@@ -8,6 +8,13 @@ auther in('list of values')
 
 
 similarly not in opposite of in
+
+select * from books;
+select title, released_year
+ from books where 
+released_year >=2000 and released_year %2 =0 order by released_year
+
+
 ======================================
 misc
 drop table people;
