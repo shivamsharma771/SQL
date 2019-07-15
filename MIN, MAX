@@ -1,0 +1,44 @@
+MIN:
+
+Select MIN(released_year) from books;
+
+
+Select MIN(released_year) from books;
+select min(pages) from books;
+
+similar is the case with MAX
+
+
+
+Select max(released_year) from books;
+select max(pages) from books;
+
+to get the corresponding titke and pages using max and min:
+
+select title,pages from books where pages=(select max(pages) from books);
+
+another way of doing this:
+
+select * from books order by pages asc limit 1
+select * from books order by pages desc limit 1
+-----------------------------------------------------------------
+
+select concat(author_lname,author_fname) as author,
+min(released_year)
+as first_release from books 
+group by author
+order by first_release
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
