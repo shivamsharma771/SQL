@@ -1,0 +1,57 @@
+CROSS JOIN:
+Select * from orders  where customer_id=
+       (
+       select id from customers where
+       last_name = 'George'
+       )
+       
+       ====> Select * from orders,customers
+       
+       cross join gives all the records of both the table duplicatly
+        run again for all the rows.
+        
+        implicit inner join we dont put any join condition but  do it like:
+        
+        selct first_name, last_name, order_date, amount,from customers, 
+        orders where customer.id =order.customer_id
+        
+        expilicit inner join
+        
+        select * from customers join orders on customers.id= orders.cutsomer_id
+        
+        arbitary join: need not to use this as it doesn't serves the purpose
+        
+        selct * from customers join orders on customers.id=orders.id;
+        
+        SELECT * FROM customers, orders 
+WHERE customers.id = orders.customer_id;
+-- IMPLICIT INNER JOIN
+
+SELECT first_name, last_name, order_date, amount
+FROM customers, orders 
+    WHERE customers.id = orders.customer_id;
+    ========================imp info====================
+    Cross join doesnt use join statement
+    default join is inner join
+    inner join: where records match
+    
+    LEFT:
+    select * from customers c left join orders o on c.id=o.customer_id; 
+    Right:
+    select * from customers c right join orders o on c.id=o.customer_id; 
+    
+    ifnull:
+    -------------------------
+    
+    SELECT * FROM customers
+LEFT JOIN orders
+    ON customers.id = orders.customer_id;
+SELECT * FROM orders
+RIGHT JOIN customers
+    ON customers.id = orders.customer_id;    
+SELECT * FROM orders
+LEFT JOIN customers
+    ON customers.id = orders.customer_id;    
+SELECT * FROM customers
+RIGHT JOIN orders
+    ON customers.id = orders.customer_id;
