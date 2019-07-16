@@ -1,0 +1,4 @@
+Many to Many
+
+There can be a centeralized lib rary
+select title,avg(rating)  from series s join reviews r on s.id= r.series_id group by s.id
