@@ -1,0 +1,8 @@
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+A cursor is a pointer to this context area. PL/SQL controls the context area through a cursor. A cursor holds the rows (one or more) returned by a SQL statement. The set of rows the cursor holds is referred to as the active set.
+
+You can name a cursor so that it could be referred to in a program to fetch and process the rows returned by the SQL statement, one at a time. There are two types of cursors −
+
+Implicit cursors internally
+Explicit cursors
