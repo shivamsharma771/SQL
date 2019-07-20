@@ -8,3 +8,33 @@ INNER JOIN reviews
 INNER JOIN series
     ON series.id = reviews.series_id
 ORDER BY title;
+-------------------------------------------------------------------------------
+select u.id,username,count(*) as No_of_pictures
+from
+users u join photos p on u.id=p.user_id 
+group by u.username 
+order by u.id ;
+-------------------------------------------------------------------------
+Select
+ (select count(*) from users ) / (select count(*) from photos) 
+ as average
+ ------------------------------------------------------------------
+ select t.id, t.tag_name,count(*) from 
+ 
+ photo_tags pt 
+ join 
+ tags t on t.id = pt.tag_id 
+ group by
+ t.tag_name order by t.id
+ 
+ ---------------------------------------------------------
+ select t.id, t.tag_name,count(*) 
+ as
+freq from photo_tags pt 
+join
+tags t on t.id = pt.tag_id  
+ group by
+  t.tag_name  
+ order by freq desc limit 10
+ ----------------------------------------------------------
+ select username, count(*) as total_likes from users u join likes l on u.id=l.user_id group by u.username having total_likes = (select count(*) from photos);
