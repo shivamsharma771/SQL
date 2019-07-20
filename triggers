@@ -1,0 +1,74 @@
+Triggers are the SQL statements that are automatically run when a specific table is changed.
+Syntax:
+
+Create Trigger trigger_name
+trigger_time trigger_event on table_name for each row
+begin
+
+....Conditions if else if
+
+End;
+
+Trigger_time: Before After, nothing for present.
+
+ IMP:
+ In SQL you close each statement with a delimiter, which is by default a semicolon (;). 
+ In a trigger you need to write multiple statements, each ending in a semicolon. To tell MySQL that those semicolons are not the
+ end of your trigger statement, you temporarily change the delimiter from ; to //, so MySQL will know that the trigger statement 
+ only ends when it econunters a //.
+ 
+ Old and new values are available in both BEFORE and AFTER row triggers. A new column value can be assigned
+ in a BEFORE row trigger, but not in an AFTER row trigger 
+ (because the triggering statement takes effect before an AFTER row trigger is fired). 
+ If a BEFORE row trigger changes the value of new.
+ -----------------------------------------------------------------------------------------------------------------
+ 
+ delimiter //
+create trigger noselffollow
+before insert on follow for each row
+begin
+if
+new.follower_id =new.followee_id
+then
+signal sqlstate '0000'
+set message_text ='Dont follow your self';
+end if;
+end;
+//
+delimiter ;
+--------------------------------------------------------------------------------
+delimiter //
+create trigger noselffollow
+before insert on follows for each row
+begin
+if
+new.follower_id =new.followee_id
+then
+signal sqlstate '45000'
+set message_text ='Dont follow your self';
+end if;
+end;
+//
+delimiter ;
+insert into follows(follower_id,followee_id) values (7,7)
+
+------------------------------------------------------------------------------
+
+In case of after we use old.column name for reference
+can create a logger trigger by using above
+
+Managing trigger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
